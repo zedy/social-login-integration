@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import { LoginOutlined } from '@ant-design/icons';
 import FormInputElement, { InputType } from '../elements/FormInputElement';
 import Button from '../elements/Button';
+import FlexWrapper from '../elements/FlexWrapper';
 
 const schemaValidation = yup
   .object({
@@ -33,36 +34,29 @@ function LoginForm() {
   };
 
   return (
-    <div className="login w-full rounded-xl">
-      <div className="flex flex-col">
-        <div className="text-black text-xl font-bold leading-normal tracking-tight mb-12">
-          Sign in to your account
-        </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-          <FormInputElement
-            label="Email"
-            type={InputType.Email}
-            error={errors}
-            {...register('email', { required: true })}
-          />
-          <FormInputElement
-            label="Password"
-            type={InputType.Password}
-            error={errors}
-            {...register('password', { required: true })}
-          />
-          <Button
-            type="submit"
-            icon={
-              <LoginOutlined style={{ color: '#fff', marginRight: '8px' }} />
-            }
-            className="w-full bg-emerald-900 text-neutral-50 rounded py-2 scale-100 hover:scale-90 transition-all duration-30 hover:bg-emerald-800"
-          >
-            Sign in
-          </Button>
-        </form>
-      </div>
-    </div>
+    <FlexWrapper flexDirection="col">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+        <FormInputElement
+          label="Email"
+          type={InputType.Email}
+          error={errors}
+          {...register('email', { required: true })}
+        />
+        <FormInputElement
+          label="Password"
+          type={InputType.Password}
+          error={errors}
+          {...register('password', { required: true })}
+        />
+        <Button
+          type="submit"
+          icon={<LoginOutlined style={{ color: '#fff', marginRight: '8px' }} />}
+          className="w-full bg-emerald-900 text-neutral-50 rounded py-2 scale-100 hover:scale-90 transition-all duration-30 hover:bg-emerald-800"
+        >
+          Sign in
+        </Button>
+      </form>
+    </FlexWrapper>
   );
 }
 
