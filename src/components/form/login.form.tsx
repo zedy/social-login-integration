@@ -30,7 +30,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="login w-full p-5 bg-slate-200 rounded-xl">
+    <div className="login w-full rounded-xl">
       <div className="flex flex-col">
         <div className="text-black text-xl font-bold leading-normal tracking-tight mb-12">
           Sign in to your account
@@ -79,7 +79,12 @@ function LoginForm() {
             </div>
           </div>
           <div className="w-full mt-12">
-            <button type="submit">Login</button>
+            <button
+              className="w-full bg-emerald-900 text-neutral-50 rounded py-2 scale-100 hover:scale-90 transition-all duration-30 hover:bg-emerald-800"
+              type="submit"
+            >
+              Login
+            </button>
           </div>
         </form>
       </div>
