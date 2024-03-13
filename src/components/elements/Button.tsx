@@ -3,6 +3,7 @@ import classParser from '../../utils/class-parser';
 type ButtonProperties = {
   children?: React.ReactNode;
   onClick?: (event: React.BaseSyntheticEvent) => void;
+  onMouseDown?: (event: React.BaseSyntheticEvent) => void;
   icon?: React.ReactNode | undefined;
   className?: string;
   type?: 'button' | 'submit';
@@ -28,11 +29,13 @@ export default function Button({
   icon,
   className,
   onClick,
+  onMouseDown,
   type = 'button',
 }: ButtonProperties) {
   return (
     <button
       onClick={onClick}
+      onMouseDown={onMouseDown}
       type={type === 'submit' ? 'submit' : 'button'}
       className={classParser(DEFAULT_CLASS, className)}
     >
