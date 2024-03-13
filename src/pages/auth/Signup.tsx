@@ -4,11 +4,11 @@ import { useContext } from 'react';
 // components
 import Button from '../../components/elements/Button';
 import Typography, { Type } from '../../components/elements/Typography';
-import LoginForm from '../../components/form/Login.form';
 import { SlideContext } from '../../context/SlideContext';
 import InnerSlideWrapper, {
   AnimationType,
 } from '../../components/elements/slides/InnerSlideWrapper';
+import SignupForm from '../../components/form/Signup.form';
 
 /**
  * A function component that renders the SignUpcomponent.
@@ -31,7 +31,7 @@ export default function SignUpComponent() {
       >
         Create an account
       </Typography>
-      <LoginForm />
+      <SignupForm />
       <Typography component={Type.SPAN} classes="flex mt-5">
         Already have an account?{' '}
         <Typography

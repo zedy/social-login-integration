@@ -4,6 +4,7 @@ import LoginComponent from './Login';
 import SignUpComponent from './Signup';
 import FullPageSlide, {
   AnimationType,
+  BgType,
 } from '../../components/elements/slides/FullPageSlide';
 import { SlideContextProvider } from '../../context/SlideContext';
 
@@ -20,7 +21,7 @@ export default function LoginPage() {
       </Typography>
       <SlideContextProvider>
         <FullPageSlide
-          bgImgPath="login-blur"
+          bg={BgType.Forest}
           id="login"
           type={AnimationType.Left}
           title="Viaggiare"
@@ -29,7 +30,7 @@ export default function LoginPage() {
           <LoginComponent />
         </FullPageSlide>
         <FullPageSlide
-          bgImgPath="beach-blur"
+          bg={BgType.Beach}
           id="signup"
           type={AnimationType.Right}
           title="Benvenuta"

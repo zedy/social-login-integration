@@ -41,7 +41,7 @@ function FormInputElement(
           onBlur={onBlur}
           type={type}
           placeholder=" "
-          className="z-20 w-full py-3 px-0 h-12 bg-transparent text-gray-900 placeholder-transparent
+          className="z-20 w-full py-3 px-0 h-12 !bg-transparent text-gray-900 placeholder-transparent
           text-base font-normal leading-7 border-0 border-b-[1px] border-neutral-500 appearance-none
           peer focus:outline-none focus:ring-0 focus:border-gray-900"
         />

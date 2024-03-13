@@ -6,9 +6,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        login: "url('./src/assets/forest.jpg')",
-        'login-blur': "url('./src/assets/forest-blur.jpg')",
-        'beach-blur': "url('./src/assets/beach-blur.jpg')",
+        forest: "url('./src/assets/forest-blur.jpg')",
+        beach: "url('./src/assets/beach-blur.jpg')",
       },
       fontFamily: {
         pacifico: ['"Pacifico"', ...defaultTheme.fontFamily.sans],

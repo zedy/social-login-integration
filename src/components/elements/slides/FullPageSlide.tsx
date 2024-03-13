@@ -9,8 +9,13 @@ export enum AnimationType {
   Right = 'right',
 }
 
+export enum BgType {
+  Beach = 'beach',
+  Forest = 'forest',
+}
+
 type Props = {
-  bgImgPath: string;
+  bg: BgType;
   children: React.ReactNode;
   id: string;
   title: string;
@@ -29,6 +34,17 @@ const ANIMATIONS = {
   },
 };
 
+function Bg(key: string) {
+  switch (key) {
+    case 'beach':
+      return 'bg-beach';
+    case 'forest':
+      return 'bg-forest';
+    default:
+      return '';
+  }
+}
+
 /**
  * This component renders a full page sliding element.
  * The point of this component is to provide a full page sliding effect and
@@ -44,7 +60,7 @@ const ANIMATIONS = {
  * @returns JSX.Element
  */
 export default function FullPageSlide({
-  bgImgPath,
+  bg,
   children,
   id,
   title,
@@ -53,6 +69,9 @@ export default function FullPageSlide({
 }: Props) {
   const { active } = useContext(SlideContext);
   const isActive = active === id;
+  // i had to do it like as tailwind wouldn't load the bg image
+  // if it was written as a dynimic string literal
+  const backgroundImg = Bg(bg);
 
   return (
     <div
@@ -61,7 +80,7 @@ export default function FullPageSlide({
       }`}
     >
       <div
-        className={`bg-${bgImgPath} absolute top-0 left-0 bottom-0 right-0 bg-no-repeat bg-cover bg-center flex flex-col z-0`}
+        className={`absolute top-0 left-0 bottom-0 right-0 bg-no-repeat bg-cover bg-center flex flex-col z-0 ${backgroundImg}`}
       />
       <FlexWrapper
         flexDirection="col"
