@@ -9,6 +9,8 @@ import { SlideContext } from '../../context/SlideContext';
 import InnerSlideWrapper, {
   AnimationType,
 } from '../../components/elements/slides/InnerSlideWrapper';
+import FlexWrapper from '../../components/elements/FlexWrapper';
+import SocialLoginWrapper from '../../components/elements/auth/SocialLoginWrapper';
 
 /**
  * A function component that renders the LoginComponent.
@@ -24,29 +26,37 @@ export default function LoginComponent() {
   };
 
   return (
-    <InnerSlideWrapper id="login" type={AnimationType.Opacity}>
-      <Typography
-        component={Type.SPAN}
-        classes="text-black text-xl font-bold leading-normal tracking-tight mb-12 text-center"
-      >
-        Sign in to your account
-      </Typography>
-      <LoginForm />
-      <Typography component={Type.SPAN} classes="flex mt-5">
-        Don&apos;t have an account?{' '}
+    <FlexWrapper
+      classes="relative !w-auto"
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="col"
+    >
+      <SocialLoginWrapper />
+      <InnerSlideWrapper id="login" type={AnimationType.Opacity}>
         <Typography
           component={Type.SPAN}
-          classes="text-emerald-800 cursor-pointer pl-2"
+          classes="text-black text-xl font-bold leading-normal tracking-tight mb-12 text-center"
         >
-          <Button
-            className="no-underline hover:underline transition-all duration-300 font-bold"
-            onClick={handleClick}
-            onMouseDown={handleClick}
-          >
-            Sign up
-          </Button>
+          Sign in to your account
         </Typography>
-      </Typography>
-    </InnerSlideWrapper>
+        <LoginForm />
+        <Typography component={Type.SPAN} classes="flex mt-5">
+          Don&apos;t have an account?{' '}
+          <Typography
+            component={Type.SPAN}
+            classes="text-emerald-800 cursor-pointer pl-2"
+          >
+            <Button
+              className="no-underline hover:underline transition-all duration-300 font-bold"
+              onClick={handleClick}
+              onMouseDown={handleClick}
+            >
+              Sign up
+            </Button>
+          </Typography>
+        </Typography>
+      </InnerSlideWrapper>
+    </FlexWrapper>
   );
 }

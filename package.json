@@ -1,5 +1,5 @@
 {
-  "name": "react-ts-vite-testing",
+  "name": "social-login-integration",
   "description": "Default boilerplate react app with vite in typescript w/, testing libs, eslint, prettier, airbnb styleguide",
   "private": true,
   "version": "0.0.1",
@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
     "react-router-dom": "^6.16.0",
+    "reactjs-social-login": "^2.6.3",
     "yup": "^1.4.0",
     "zustand": "^4.4.3"
   },
