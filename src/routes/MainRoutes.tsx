@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router-dom';
 // components
 import Loadable from '../components/Loadable';
 import Layout from '../components/layout/Layout';
+import AuthGuard from './route-guard/AuthGuard';
 
 // renders
 const HomePage = Loadable(lazy(() => import('../pages/HomePage')));
@@ -18,7 +19,11 @@ const BrowserRouter = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Layout />,
+    element: (
+      <AuthGuard>
+        <Layout />
+      </AuthGuard>
+    ),
     children: [
       {
         path: '/',
