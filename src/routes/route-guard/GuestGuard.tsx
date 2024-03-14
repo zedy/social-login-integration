@@ -5,6 +5,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { GuardProps } from '../../types/auth';
 
+/**
+ * Route Guard Component
+ *
+ * The purpose of this component is to protect routes from authenticated users.
+ * These routes are only accessible to unauthenticated users. (like the login page)
+ *
+ * If you want to do the opposite, use the AuthGuard component.
+ */
 const GuestGuard = ({ children }: GuardProps) => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();

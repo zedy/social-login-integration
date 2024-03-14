@@ -12,27 +12,17 @@ export type UserProfile = {
   role: string;
 };
 
-export interface AuthProps {
+export type AuthProps = {
   isLoggedIn: boolean;
   isInitialized?: boolean;
   user?: UserProfile | null;
   token?: string | null;
-}
+};
 
-export interface AuthActionProps {
+export type AuthActionProps = {
   type: string;
   payload?: AuthProps;
-}
-
-export interface InitialLoginContextProps {
-  isLoggedIn: boolean;
-  isInitialized?: boolean;
-  user?: UserProfile | null | undefined;
-}
-
-export interface JWTDataProps {
-  userId: string;
-}
+};
 
 export type AuthContextType = {
   isLoggedIn: boolean;
