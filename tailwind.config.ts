@@ -11,6 +11,7 @@ export default {
       },
       fontFamily: {
         pacifico: ['"Pacifico"', ...defaultTheme.fontFamily.sans],
+        comfortaa: ['"Comfortaa"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
