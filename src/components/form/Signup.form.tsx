@@ -15,6 +15,11 @@ const getCharacterValidationError = (str: string) => {
   return `Your password must have at least 1 ${str} character`;
 };
 
+/**
+ * We could separate the schemaValidation into a separate file
+ * and import it here. This would make the code more modular, but
+ * this is such a small form that it's not necessary.
+ */
 const schemaValidation = yup
   .object({
     firstName: yup.string().required().min(3).max(32),
@@ -45,7 +50,7 @@ type FormData = {
 };
 
 type Props = {
-  mutationCallback: (data: Record<string, string>) => void;
+  mutationCallback: (arg0: Record<string, string>) => void;
 };
 
 export default function SignupForm({ mutationCallback }: Props) {

@@ -12,7 +12,7 @@ import InnerSlideWrapper, {
   AnimationType,
 } from '../../components/elements/slides/InnerSlideWrapper';
 import SignupForm from '../../components/form/Signup.form';
-import registerUserApi from '../../api/mutations';
+import { registerUserApi } from '../../api/mutations';
 import Loading from '../../components/Loading';
 import { setSession } from '../../utils/tokenizer';
 import { useStore } from '../../store/store';
@@ -43,6 +43,9 @@ export default function SignUpComponent() {
     const { created, message, token, user } = data;
 
     if (created) {
+      toast.success(message, {
+        id: message,
+      });
       setSession(token);
       loginUser(user);
       navigate('/');

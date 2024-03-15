@@ -3,3 +3,6 @@
 - change import from relative to absolute: use path @ [same as modular components]
 - write tests
 - theme? [nice to have]
+- update .Readme
+- dockerize? [most likely so]
+- separate component import by type! don't be lazy! OCD vs Lazyness [let them fight!] *stares in japanese*

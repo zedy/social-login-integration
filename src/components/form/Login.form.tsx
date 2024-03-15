@@ -20,7 +20,11 @@ type FormData = {
   password: string;
 };
 
-function LoginForm() {
+type Props = {
+  mutationCallback: (arg0: Record<string, string>) => void;
+};
+
+function LoginForm({ mutationCallback }: Props) {
   const {
     register,
     handleSubmit,
@@ -30,7 +34,7 @@ function LoginForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    console.log(data);
+    mutationCallback(data);
   };
 
   return (

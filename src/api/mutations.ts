@@ -15,9 +15,11 @@ type Response = {
   };
 };
 
-const registerUserApi = async (data: Record<string, string>) => {
+type Data = Record<string, string>;
+
+const apiHandler = async (data: Data, url: string) => {
   const response: Response = await axios({
-    url: '/user/create',
+    url,
     baseURL: import.meta.env.VITE_SERVER_API as string,
     data,
     method: 'POST',
@@ -30,10 +32,18 @@ const registerUserApi = async (data: Record<string, string>) => {
   const { success } = response.data;
 
   if (!success) {
-    throw new Error('Error registering user. Please try again.');
+    throw new Error('An error occured. Please try again.');
   }
 
   return response.data;
 };
 
-export default registerUserApi;
+export async function loginFormUserApi(data: Data) {
+  const result = await apiHandler(data, '/auth/login');
+  return result;
+}
+
+export async function registerUserApi(data: Data) {
+  const result = await apiHandler(data, '/user/create');
+  return result;
+}
