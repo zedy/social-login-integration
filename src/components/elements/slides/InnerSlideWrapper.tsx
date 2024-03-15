@@ -12,6 +12,7 @@ export enum AnimationType {
 
 type Props = {
   children: React.ReactNode;
+  classes?: string;
   id: string;
   type: AnimationType;
 };
@@ -44,16 +45,23 @@ const ANIMATIONS = {
  * @example see src/pages/auth/Login.tsx
  * @returns JSX.Element
  */
-export default function InnerSlideWrapper({ children, id, type }: Props) {
+export default function InnerSlideWrapper({
+  children,
+  classes,
+  id,
+  type,
+}: Props) {
   const { active } = useContext(SlideContext);
   const isActive = active === id;
 
   return (
     <FlexWrapper
       flexDirection="col"
-      classes={`!w-auto p-5 relative z-10 bg-slate-200 rounded-md duration-500 ease-in-out delay-300 transform-${
+      classes={`!w-auto p-5 relative overflow-hidden z-10 bg-slate-200 rounded-md duration-500 ease-in-out delay-300 transform-${
         ANIMATIONS[type].keyword
-      } ${isActive ? ANIMATIONS[type].active : ANIMATIONS[type].inactive}`}
+      } ${
+        isActive ? ANIMATIONS[type].active : ANIMATIONS[type].inactive
+      } ${classes}`}
     >
       {children}
     </FlexWrapper>

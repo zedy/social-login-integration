@@ -1,7 +1,10 @@
+// libs
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+
+// components
 import { GuardProps } from '../../types/auth';
+import { useStore } from '../../store/store';
 
 /**
  * Route Guard Component
@@ -15,12 +18,12 @@ import { GuardProps } from '../../types/auth';
  * @param {GuardProps} { children }
  */
 const AuthGuard = ({ children }: GuardProps) => {
-  const { user, isLoggedIn } = useAuth();
+  const { currentUser } = useStore();
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!currentUser) {
       navigate('login', {
         state: {
           from: location.pathname,
@@ -28,7 +31,7 @@ const AuthGuard = ({ children }: GuardProps) => {
         replace: true,
       });
     }
-  }, [isLoggedIn, navigate, location, user]);
+  }, [navigate, location, currentUser]);
 
   return children;
 };

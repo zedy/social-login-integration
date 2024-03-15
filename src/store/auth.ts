@@ -6,8 +6,8 @@ import { LOGIN, LOGOUT, REGISTER } from './actions';
 export const initialState: AuthProps = {
   isLoggedIn: false,
   isInitialized: false,
-  user: null,
   token: null,
+  user: null,
 };
 
 const auth = (state = initialState, action: AuthActionProps) => {

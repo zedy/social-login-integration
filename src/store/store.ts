@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable import/prefer-default-export */
+// libs
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-type User = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  id: number;
-  profilePicture: string;
-};
+// types
+import User from '../types/user';
 
 type State = {
   currentUser: null | User;

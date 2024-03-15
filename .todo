@@ -1,0 +1,5 @@
+- add i18
+- go through all TODOS
+- change import from relative to absolute: use path @ [same as modular components]
+- write tests
+- theme? [nice to have]

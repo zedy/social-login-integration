@@ -1,22 +1,22 @@
 import { ReactElement } from 'react';
+import User from './user';
 
 export type GuardProps = {
   children: ReactElement | null;
 };
 
-export type UserProfile = {
-  id: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-  role: string;
+export type RegisterProps = {
+  user: User;
+  token: string;
+  message: string;
+  created: boolean;
 };
 
 export type AuthProps = {
-  isLoggedIn: boolean;
-  isInitialized?: boolean;
-  user?: UserProfile | null;
+  isLoggedIn?: boolean;
+  user?: User | null;
   token?: string | null;
+  isInitialized?: boolean;
 };
 
 export type AuthActionProps = {
@@ -26,8 +26,8 @@ export type AuthActionProps = {
 
 export type AuthContextType = {
   isLoggedIn: boolean;
-  isInitialized?: boolean;
-  user: UserProfile | null | undefined;
+  user: User | null | undefined;
+  isInitialized: boolean;
   logout: () => void;
   login: (data: Record<string, string>) => Promise<void>;
   registerUser: (

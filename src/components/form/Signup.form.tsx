@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // libs
+import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -16,9 +17,10 @@ const getCharacterValidationError = (str: string) => {
 
 const schemaValidation = yup
   .object({
-    name: yup.string().required().min(3).max(32),
-    email: yup.string().email().required().min(8).max(64),
-    password: yup
+    firstName: yup.string().required().min(3).max(32),
+    lastName: yup.string().required().min(3).max(32),
+    signupEmail: yup.string().email().required().min(8).max(64),
+    signupPassword: yup
       .string()
       .required()
       .min(8)
@@ -30,18 +32,23 @@ const schemaValidation = yup
     passwordVerify: yup
       .string()
       .required()
-      .oneOf([yup.ref('password')], 'Passwords must match'),
+      .oneOf([yup.ref('signupPassword')], 'Passwords must match'),
   })
   .required();
 
 type FormData = {
-  name: string;
-  email: string;
-  password: string;
+  firstName: string;
+  lastName: string;
+  signupEmail: string;
+  signupPassword: string;
   passwordVerify: string;
 };
 
-export default function SignupForm() {
+type Props = {
+  mutationCallback: (data: Record<string, string>) => void;
+};
+
+export default function SignupForm({ mutationCallback }: Props) {
   const {
     register,
     handleSubmit,
@@ -50,37 +57,56 @@ export default function SignupForm() {
     resolver: yupResolver(schemaValidation),
   });
 
-  const onSubmit = async (data: FormData) => {
-    console.log(data);
+  const onSubmit = async (formData: FormData) => {
+    try {
+      mutationCallback({
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        email: formData.signupEmail,
+        password: formData.signupPassword,
+      });
+    } catch (err: unknown) {
+      toast.error('User creation encountered an error');
+    }
   };
 
   return (
     <FlexWrapper flexDirection="col">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        <FormInputElement
-          label="Name"
-          type={InputType.Text}
-          error={errors}
-          {...register('name', { required: true })}
-        />
+        <FlexWrapper flexDirection="col" classes="sm:flex-row">
+          <FormInputElement
+            label="First name"
+            type={InputType.Text}
+            error={errors}
+            {...register('firstName', { required: true })}
+          />
+          <FormInputElement
+            label="Last name"
+            type={InputType.Text}
+            error={errors}
+            {...register('lastName', { required: true })}
+          />
+        </FlexWrapper>
         <FormInputElement
           label="Email"
           type={InputType.Email}
           error={errors}
-          {...register('email', { required: true })}
+          {...register('signupEmail', { required: true })}
         />
-        <FormInputElement
-          label="Password"
-          type={InputType.Password}
-          error={errors}
-          {...register('password', { required: true })}
-        />
-        <FormInputElement
-          label="Password verify"
-          type={InputType.Password}
-          error={errors}
-          {...register('passwordVerify', { required: true })}
-        />
+        <FlexWrapper flexDirection="col" classes="sm:flex-row">
+          <FormInputElement
+            label="Password"
+            type={InputType.Password}
+            error={errors}
+            {...register('signupPassword', { required: true })}
+          />
+          <FormInputElement
+            label="Password verify"
+            type={InputType.Password}
+            error={errors}
+            {...register('passwordVerify', { required: true })}
+          />
+        </FlexWrapper>
         <Button
           type="submit"
           icon={
