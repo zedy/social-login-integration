@@ -10,7 +10,7 @@ type ButtonProperties = {
 };
 
 const DEFAULT_CLASS =
-  'flex justify-center border-0 items-center rounded border-0 scale-100 hover:scale-110 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0';
+  'flex justify-center border-0 items-center rounded border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0';
 
 /**
  * Basic function button component.
