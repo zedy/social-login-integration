@@ -47,3 +47,8 @@ export async function registerUserApi(data: Data) {
   const result = await apiHandler(data, '/user/create');
   return result;
 }
+
+export async function socialLoginApi(data: Data) {
+  const result = await apiHandler(data, '/social-login/login');
+  return result;
+}

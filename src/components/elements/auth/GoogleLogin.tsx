@@ -1,26 +1,55 @@
 // libs
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { LoginSocialGoogle, IResolveParams } from 'reactjs-social-login';
-import { GoogleOutlined } from '@ant-design/icons';
+import { GoogleOutlined, LoadingOutlined } from '@ant-design/icons';
 
-export default function GoogleLogin() {
+// components
+import FlexWrapper from '../FlexWrapper';
+import { parseGoogleData } from '../../../utils/socialDataParser';
+
+type Props = {
+  mutationCallback: (data: Record<string, string>) => void;
+};
+
+export default function GoogleLogin({ mutationCallback }: Props) {
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+
   const onLoginStart = useCallback(() => {
-    console.log('login start');
+    setIsFetching(true);
   }, []);
 
+  const onReject = useCallback((error: Record<string, string>) => {
+    setIsFetching(false);
+    console.log(error);
+  }, []);
+
+  const onResolve = useCallback(
+    ({ data }: IResolveParams) => {
+      setIsFetching(false);
+      mutationCallback(parseGoogleData(data));
+    },
+    [mutationCallback]
+  );
+
   return (
-    <LoginSocialGoogle
-      client_id={import.meta.env.VITE_GOOGLE_APP_ID || ''}
-      onLoginStart={onLoginStart}
-      onResolve={({ provider, data }: IResolveParams) => {
-        console.log(provider);
-        console.log(data);
-      }}
-      onReject={(err) => {
-        console.log(err);
-      }}
+    <FlexWrapper
+      alignItems="center"
+      classes={`!w-auto transition-transform duration-150 ${
+        isFetching ? 'translate-x-10' : 'translate-x-0'
+      }`}
     >
-      <GoogleOutlined style={{ color: '#fff', fontSize: '18px' }} />
-    </LoginSocialGoogle>
+      <LoadingOutlined
+        style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}
+      />
+      <LoginSocialGoogle
+        client_id={import.meta.env.VITE_GOOGLE_APP_ID || ''}
+        scope="openid email https://www.googleapis.com/auth/userinfo.email"
+        onLoginStart={onLoginStart}
+        onResolve={onResolve}
+        onReject={onReject}
+      >
+        <GoogleOutlined style={{ color: '#fff', fontSize: '18px' }} />
+      </LoginSocialGoogle>
+    </FlexWrapper>
   );
 }

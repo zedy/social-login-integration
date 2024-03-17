@@ -1,4 +1,4 @@
-import classParser from '../../utils/class-parser';
+import classParser from '../../utils/classParser';
 
 type ImageProps = {
   alt: string;

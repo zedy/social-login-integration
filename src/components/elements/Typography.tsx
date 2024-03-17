@@ -2,7 +2,7 @@
 import React from 'react';
 
 // utils
-import classParser from '../../utils/class-parser';
+import classParser from '../../utils/classParser';
 
 // typefaces
 export enum Type {

@@ -1,28 +1,56 @@
 // libs
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { LoginSocialGithub, IResolveParams } from 'reactjs-social-login';
-import { GithubFilled } from '@ant-design/icons';
+import { GithubFilled, LoadingOutlined } from '@ant-design/icons';
 
-export default function GithubLogin() {
+// components
+import FlexWrapper from '../FlexWrapper';
+import { parseGithubData } from '../../../utils/socialDataParser';
+
+type Props = {
+  mutationCallback: (data: Record<string, string>) => void;
+};
+
+export default function GithubLogin({ mutationCallback }: Props) {
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+
   const onLoginStart = useCallback(() => {
-    console.log('login start');
+    setIsFetching(true);
   }, []);
 
+  const onReject = useCallback((error: Record<string, string>) => {
+    setIsFetching(false);
+    console.log(error);
+  }, []);
+
+  const onResolve = useCallback(
+    ({ data }: IResolveParams) => {
+      setIsFetching(false);
+      mutationCallback(parseGithubData(data));
+    },
+    [mutationCallback]
+  );
+
   return (
-    <LoginSocialGithub
-      client_id={import.meta.env.VITE_GITHUB_APP_ID || ''}
-      client_secret={import.meta.env.VITE_GITHUB_APP_SECRET || ''}
-      redirect_uri={`${import.meta.env.VITE_HOST}/login`}
-      onLoginStart={onLoginStart}
-      onResolve={({ provider, data }: IResolveParams) => {
-        console.log(provider);
-        console.log(data);
-      }}
-      onReject={(err: any) => {
-        console.log(err);
-      }}
+    <FlexWrapper
+      alignItems="center"
+      classes={`!w-auto transition-transform duration-150 ${
+        isFetching ? 'translate-x-10' : 'translate-x-0'
+      }`}
     >
-      <GithubFilled style={{ color: '#000', fontSize: '18px' }} />
-    </LoginSocialGithub>
+      <LoadingOutlined
+        style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}
+      />
+      <LoginSocialGithub
+        client_id={import.meta.env.VITE_GITHUB_APP_ID || ''}
+        client_secret={import.meta.env.VITE_GITHUB_APP_SECRET || ''}
+        redirect_uri={`${import.meta.env.VITE_HOST}/login`}
+        onLoginStart={onLoginStart}
+        onResolve={onResolve}
+        onReject={onReject}
+      >
+        <GithubFilled style={{ color: '#000', fontSize: '18px' }} />
+      </LoginSocialGithub>
+    </FlexWrapper>
   );
 }

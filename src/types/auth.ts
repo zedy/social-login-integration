@@ -34,3 +34,7 @@ export type AuthContextType = {
     data: Record<string, string>
   ) => Promise<{ message: string; created: boolean }>;
 };
+
+export type SocialLoginProps = {
+  mutationCallback: (data: Record<string, string>) => void;
+};
