@@ -2,13 +2,19 @@
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import FlexWrapper from '../elements/FlexWrapper';
 
 export default function Layout() {
   return (
-    <div className="w-full">
+    <FlexWrapper
+      flexDirection="col"
+      justifyContent="between"
+      alignItems="center"
+      classes="w-full h-full"
+    >
       <Header />
       <Main />
       <Footer />
-    </div>
+    </FlexWrapper>
   );
 }

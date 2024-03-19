@@ -10,6 +10,7 @@ import { UserAddOutlined } from '@ant-design/icons';
 import FormInputElement, { InputType } from '../elements/FormInputElement';
 import Button from '../elements/Button';
 import FlexWrapper from '../elements/FlexWrapper';
+import { SocialLoginProps } from '../../types/auth';
 
 const getCharacterValidationError = (str: string) => {
   return `Your password must have at least 1 ${str} character`;
@@ -49,11 +50,7 @@ type FormData = {
   passwordVerify: string;
 };
 
-type Props = {
-  mutationCallback: (arg0: Record<string, string>) => void;
-};
-
-export default function SignupForm({ mutationCallback }: Props) {
+export default function SignupForm({ mutationCallback }: SocialLoginProps) {
   const {
     register,
     handleSubmit,

@@ -6,9 +6,10 @@ import { devtools, persist } from 'zustand/middleware';
 
 // types
 import User from '../types/user';
+import { setSession } from '../utils/tokenizer';
 
 type State = {
-  currentUser: null | User;
+  currentUser: User | null;
 };
 
 // initial state
@@ -20,7 +21,7 @@ export const initialState: State = {
 // @ts-ignore
 const storeObject = (set) => ({
   currentUser: null,
-  loginUser: (user: User | null) =>
+  loginUser: (user: User) =>
     set(
       (store: State) => ({
         ...store,
@@ -29,7 +30,7 @@ const storeObject = (set) => ({
       false,
       'user logged in'
     ),
-  logoutUser: () =>
+  logoutUser: () => {
     set(
       (store: State) => ({
         ...store,
@@ -37,7 +38,19 @@ const storeObject = (set) => ({
       }),
       false,
       'user logged out'
-    ),
+    );
+    setSession(null);
+  },
+  updateProfile: (profile) => {
+    set(
+      (store: State) => ({
+        ...store,
+        currentUser: { ...store.currentUser, profile },
+      }),
+      false,
+      'user profile updated'
+    );
+  },
 });
 
 // TODO: if prod then no devtools

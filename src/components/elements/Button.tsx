@@ -7,10 +7,11 @@ type ButtonProperties = {
   icon?: React.ReactNode | undefined;
   className?: string;
   type?: 'button' | 'submit';
+  disabled?: boolean;
 };
 
 const DEFAULT_CLASS =
-  'flex justify-center border-0 items-center rounded border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0';
+  'flex justify-center border-0 items-center rounded border-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 disabled:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-70 disabled:scale-100 hover:scale-95';
 
 /**
  * Basic function button component.
@@ -31,9 +32,11 @@ export default function Button({
   onClick,
   onMouseDown,
   type = 'button',
+  disabled,
 }: ButtonProperties) {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       onMouseDown={onMouseDown}
       type={type === 'submit' ? 'submit' : 'button'}

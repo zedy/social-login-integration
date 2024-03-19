@@ -4,9 +4,12 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { LoginOutlined } from '@ant-design/icons';
+
+// components
 import FormInputElement, { InputType } from '../elements/FormInputElement';
 import Button from '../elements/Button';
 import FlexWrapper from '../elements/FlexWrapper';
+import { SocialLoginProps } from '../../types/auth';
 
 const schemaValidation = yup
   .object({
@@ -20,11 +23,7 @@ type FormData = {
   password: string;
 };
 
-type Props = {
-  mutationCallback: (arg0: Record<string, string>) => void;
-};
-
-function LoginForm({ mutationCallback }: Props) {
+function LoginForm({ mutationCallback }: SocialLoginProps) {
   const {
     register,
     handleSubmit,

@@ -1,9 +1,19 @@
-type User = {
-  email: string;
+export type Profile = {
   firstName: string;
-  id: number;
   lastName: string;
   profilePicture: string;
+  bio: string;
+  userId: number;
+  phone: number;
+};
+
+type User = {
+  email: string;
+  id: number;
+  isSocial: boolean;
+  provider: string;
+  providerId: string;
+  profile: Profile;
 };
 
 export default User;

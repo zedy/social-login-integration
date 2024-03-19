@@ -4,7 +4,7 @@ import Typography, { Type } from '../elements/Typography';
 // Component
 export default function Footer() {
   return (
-    <footer className="w-full bg-zinc-800 h-10 flex justify-center">
+    <footer className="w-full bg-zinc-800 h-10 flex justify-center mt-16">
       <FlexWrapper
         alignItems="center"
         classes="px-5 md:max-w-5xl justify-between h-10"

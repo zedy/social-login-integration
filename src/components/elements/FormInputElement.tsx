@@ -2,12 +2,16 @@
 import { ChangeHandler, FieldErrors } from 'react-hook-form';
 import { get } from 'lodash';
 import { forwardRef } from 'react';
+
+// components
 import FormError from './FormError';
 
 export enum InputType {
   Text = 'text',
   Email = 'email',
   Password = 'password',
+  Number = 'number',
+  Hidden = 'hidden',
 }
 
 type Props = {
@@ -45,15 +49,17 @@ function FormInputElement(
           text-base font-normal leading-7 border-0 border-b-[1px] border-neutral-500 appearance-none
           peer focus:outline-none focus:ring-0 focus:border-gray-900"
         />
-        <label
-          htmlFor={name}
-          className="absolute z-10 left-0 -top-3.5 text-neutral-500 text-base font-normal transition-all
+        {type !== 'hidden' && (
+          <label
+            htmlFor={name}
+            className="absolute z-10 left-0 -top-3.5 text-neutral-500 text-base font-normal transition-all
           peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 
           peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-black peer-focus:text-xs"
-        >
-          {label}
-        </label>
-        {get(error, name) ? (
+          >
+            {label}
+          </label>
+        )}
+        {get(error, name) && type !== 'hidden' ? (
           <FormError message={get(error[name], 'message') as string} />
         ) : null}
       </div>

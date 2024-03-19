@@ -15,14 +15,14 @@ type Response = {
   };
 };
 
-type Data = Record<string, string>;
+type Data = Record<string, string | number>;
 
-const apiHandler = async (data: Data, url: string) => {
+const apiHandler = async (data: Data, url: string, method?: string) => {
   const response: Response = await axios({
     url,
     baseURL: import.meta.env.VITE_SERVER_API as string,
     data,
-    method: 'POST',
+    method: method || 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -50,5 +50,12 @@ export async function registerUserApi(data: Data) {
 
 export async function socialLoginApi(data: Data) {
   const result = await apiHandler(data, '/social-login/login');
+  return result;
+}
+
+export async function profileUpdateApi(data: Data) {
+  const { id, ...dataCopy } = data;
+
+  const result = await apiHandler(dataCopy, `/profile/${id}`, 'PUT');
   return result;
 }
