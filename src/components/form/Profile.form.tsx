@@ -78,10 +78,8 @@ function ProfileForm() {
 
   return (
     <form className="w-full">
-      <FormInputElement
-        label=""
-        type={InputType.Hidden}
-        error={errors}
+      <input
+        type="hidden"
         {...register('id', { required: true, value: defaultValues.id })}
       />
       <FlexWrapper flexDirection="col" alignItems="center">
