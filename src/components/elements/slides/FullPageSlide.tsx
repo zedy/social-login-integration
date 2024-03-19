@@ -90,7 +90,7 @@ export default function FullPageSlide({
       >
         <Typography
           component={Type.SPAN}
-          classes={`font-pacifico z-10 !text-5xl absolute top-[8%] underline underline-${titleColor} text-${titleColor}`}
+          classes={`font-pacifico z-10 !text-5xl absolute top-[3%] sm:top-[8%] underline underline-${titleColor} text-${titleColor}`}
         >
           {title}
         </Typography>

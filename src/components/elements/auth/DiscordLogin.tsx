@@ -39,7 +39,7 @@ export default function DiscordLogin({ mutationCallback }: SocialLoginProps) {
   }, []);
 
   return (
-    <FlexWrapper>
+    <FlexWrapper classes="mr-[8px]">
       <LoadingOutlined
         style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}
       />

@@ -50,7 +50,7 @@ function ProfileForm() {
 
   const defaultValues = {
     id,
-    email,
+    email: email || '',
     firstname,
     lastname: lastname || '',
     bio: bio || '',

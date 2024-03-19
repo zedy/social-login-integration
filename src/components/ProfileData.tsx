@@ -1,5 +1,4 @@
 // components
-
 import { useStore } from '../store/store';
 import FlexWrapper from './elements/FlexWrapper';
 import GridWrapper from './elements/GridWrapper';
@@ -13,7 +12,7 @@ function ProfileData() {
 
   const defaultValues = {
     id,
-    email,
+    email: email || '',
     firstname,
     lastname: lastname || '',
     bio: bio || '',
