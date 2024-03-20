@@ -1,8 +1,5 @@
 // libs
 import { useContext } from 'react';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
 
 // components
 import Button from '../../components/elements/Button';
@@ -14,8 +11,7 @@ import InnerSlideWrapper, {
 import SignupForm from '../../components/form/Signup.form';
 import { registerUserApi } from '../../api/mutations';
 import Loading from '../../components/Loading';
-import { setSession } from '../../utils/tokenizer';
-import { useStore } from '../../store/store';
+import useQueryMutation from '../../hooks/useQueryMutation';
 
 /**
  * A functional component that renders the SignUpcomponent & Form.
@@ -25,36 +21,12 @@ import { useStore } from '../../store/store';
  * @returns JSX
  */
 export default function SignUpComponent() {
-  const { data, mutate, isLoading, isError } = useMutation(registerUserApi);
   const { setActive } = useContext(SlideContext);
-  const { loginUser } = useStore();
-  const navigate = useNavigate();
+  const { isLoading, mutate } = useQueryMutation(registerUserApi);
 
   const handleClick = () => {
     setActive('login');
   };
-
-  if (isError) {
-    toast.error('Error registering user. Please try again later.');
-  }
-
-  // TODO: move this logic into a separate function
-  if (data) {
-    const { created, message, token, user } = data;
-
-    if (created) {
-      toast.success(message, {
-        id: message,
-      });
-      setSession(token);
-      loginUser(user);
-      navigate('/');
-    } else {
-      toast.error(message, {
-        id: message,
-      });
-    }
-  }
 
   return (
     <InnerSlideWrapper id="signup" type={AnimationType.TransitionY}>

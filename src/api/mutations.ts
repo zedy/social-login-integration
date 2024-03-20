@@ -4,21 +4,23 @@ import axios from 'axios';
 // types
 import User from '../types/user';
 
-type Response = {
+export type ResponseData = {
+  token: string;
+  user: User;
+  message: string;
   success: boolean;
-  data: {
-    token: string;
-    user: User;
-    message: string;
-    success: boolean;
-    created: boolean;
-  };
+  created: boolean;
 };
 
-type Data = Record<string, string | number>;
+export type ResponseObject = {
+  success: boolean;
+  data: ResponseData;
+};
+
+export type Data = Record<string, string | number>;
 
 const apiHandler = async (data: Data, url: string, method?: string) => {
-  const response: Response = await axios({
+  const response: ResponseObject = await axios({
     url,
     baseURL: import.meta.env.VITE_SERVER_API as string,
     data,

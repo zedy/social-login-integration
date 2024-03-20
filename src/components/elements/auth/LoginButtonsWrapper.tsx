@@ -1,8 +1,5 @@
 // libs
 import { useContext } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import { MailOutlined } from '@ant-design/icons';
 
 // components
@@ -12,13 +9,11 @@ import GithubLogin from './GithubLogin';
 import GoogleLogin from './GoogleLogin';
 import { SlideContext } from '../../../context/SlideContext';
 import { socialLoginApi } from '../../../api/mutations';
-import { setSession } from '../../../utils/tokenizer';
-import { useStore } from '../../../store/store';
 import SocialButton from './SocialButton';
-import { genericToastError, messageToastError } from '../../../utils/helpers';
 import Button from '../Button';
 import Typography, { Type } from '../Typography';
 import { ModalContext } from '../../../context/ModalContext';
+import useQueryMutation from '../../../hooks/useQueryMutation';
 
 /**
  * Wrapper component for the social login buttons.
@@ -30,32 +25,10 @@ import { ModalContext } from '../../../context/ModalContext';
  * @returns
  */
 export default function LoginButtonsWrapper() {
-  const { data, mutate, isError } = useMutation(socialLoginApi);
+  const { mutate } = useQueryMutation(socialLoginApi);
   const { setIsOpen } = useContext(ModalContext);
-  const { loginUser } = useStore();
-  const navigate = useNavigate();
   const { active } = useContext(SlideContext);
   const isActive = active === 'login';
-
-  // TODO: move this logic into a separate function
-  if (data) {
-    const { message, token, user } = data;
-
-    if (user) {
-      toast.success(message, {
-        id: message,
-      });
-      setSession(token);
-      loginUser(user);
-      navigate('/');
-    } else {
-      messageToastError(message);
-    }
-  }
-
-  if (isError) {
-    genericToastError();
-  }
 
   const handleModalOpen = () => {
     setIsOpen(true);

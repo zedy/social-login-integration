@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable import/prefer-default-export */
 // libs
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
@@ -17,8 +15,6 @@ export const initialState: State = {
   currentUser: null,
 };
 
-// TODO: create a typeface for the param: set
-// @ts-ignore
 const storeObject = (set) => ({
   currentUser: null,
   loginUser: (user: User) =>
@@ -53,7 +49,7 @@ const storeObject = (set) => ({
   },
 });
 
-// TODO: if prod then no devtools
-export const useStore = create(
-  persist(devtools(storeObject), { name: 'store' })
-);
+const withDevtools =
+  import.meta.env.VITE_ENV === 'DEV' ? devtools(storeObject) : storeObject;
+
+export const useStore = create(persist(withDevtools, { name: 'store' }));
