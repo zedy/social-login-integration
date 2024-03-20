@@ -11,6 +11,7 @@ export default function App() {
     <div className="App w-screen h-screen overflow-x-hidden font-comfortaa bg-stone-100">
       <RouterProvider router={Router} />
       <Toaster />
+      <div id="modal-root" />
     </div>
   );
 }
