@@ -7,10 +7,12 @@ import * as yup from 'yup';
 import { UserAddOutlined } from '@ant-design/icons';
 
 // components
-import FormInputElement, { InputType } from '../elements/FormInputElement';
-import Button from '../elements/Button';
-import FlexWrapper from '../elements/FlexWrapper';
-import { SocialLoginProps } from '../../types/auth';
+import FormInputElement, {
+  InputType,
+} from '@/components/elements/FormInputElement';
+import Button from '@/components/elements/Button';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import { SocialLoginProps } from '@/types/auth';
 
 const getCharacterValidationError = (str: string) => {
   return `Your password must have at least 1 ${str} character`;

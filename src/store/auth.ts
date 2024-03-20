@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/default-param-last */
-import { AuthActionProps, AuthProps } from '../types/auth';
-import { LOGIN, LOGOUT, REGISTER } from './actions';
+import { AuthActionProps, AuthProps } from '@/types/auth';
+import { LOGIN, LOGOUT, REGISTER } from '@/store/actions';
 
 // initial state
 export const initialState: AuthProps = {

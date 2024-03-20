@@ -6,10 +6,12 @@ import * as yup from 'yup';
 import { LoginOutlined } from '@ant-design/icons';
 
 // components
-import FormInputElement, { InputType } from '../elements/FormInputElement';
-import Button from '../elements/Button';
-import FlexWrapper from '../elements/FlexWrapper';
-import { SocialLoginProps } from '../../types/auth';
+import FormInputElement, {
+  InputType,
+} from '@/components/elements/FormInputElement';
+import Button from '@/components/elements/Button';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import { SocialLoginProps } from '@/types/auth';
 
 const schemaValidation = yup
   .object({

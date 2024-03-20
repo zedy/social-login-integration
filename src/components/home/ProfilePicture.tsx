@@ -3,8 +3,8 @@ import React from 'react';
 import { get } from 'lodash';
 
 // components
-import { useStore } from '../../store/store';
-import Image from '../elements/Image';
+import { useStore } from '@/store/store';
+import Image from '@/components/elements/Image';
 
 // Component
 function ProfilePicture() {

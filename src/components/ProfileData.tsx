@@ -1,8 +1,8 @@
 // components
-import { useStore } from '../store/store';
-import FlexWrapper from './elements/FlexWrapper';
-import GridWrapper from './elements/GridWrapper';
-import ProfileElement from './elements/ProfileElement';
+import { useStore } from '@/store/store';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import GridWrapper from '@/components/elements/GridWrapper';
+import ProfileElement from '@/components/elements/ProfileElement';
 
 function ProfileData() {
   const {

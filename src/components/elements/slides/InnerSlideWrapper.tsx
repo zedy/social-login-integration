@@ -2,8 +2,8 @@
 import { useContext } from 'react';
 
 // components
-import FlexWrapper from '../FlexWrapper';
-import { SlideContext } from '../../../context/SlideContext';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import { SlideContext } from '@/context/SlideContext';
 
 export enum AnimationType {
   Opacity = 'opacity',

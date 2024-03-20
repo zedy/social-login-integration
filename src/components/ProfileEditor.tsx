@@ -2,9 +2,9 @@
 import { EditOutlined } from '@ant-design/icons';
 
 // components
-import Button from './elements/Button';
-import FlexWrapper from './elements/FlexWrapper';
-import Typography, { Type } from './elements/Typography';
+import Button from '@/components/elements/Button';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
 
 type Props = {
   callback: React.Dispatch<React.SetStateAction<boolean>>;

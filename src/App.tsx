@@ -3,8 +3,8 @@ import { RouterProvider } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 // router
-import Router from './routes/MainRoutes';
-import { ModalContextProvider } from './context/ModalContext';
+import Router from '@/routes/MainRoutes';
+import { ModalContextProvider } from '@/context/ModalContext';
 
 // Component
 export default function App() {

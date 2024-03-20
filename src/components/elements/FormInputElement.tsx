@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { forwardRef } from 'react';
 
 // components
-import FormError from './FormError';
+import FormError from '@/components/elements/FormError';
 
 export enum InputType {
   Text = 'text',

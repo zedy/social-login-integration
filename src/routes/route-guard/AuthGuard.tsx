@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // components
-import { GuardProps } from '../../types/auth';
-import { useStore } from '../../store/store';
+import { GuardProps } from '@/types/auth';
+import { useStore } from '@/store/store';
 
 /**
  * Route Guard Component

@@ -3,9 +3,9 @@ import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 // components
-import Loadable from '../components/Loadable';
-import Layout from '../components/layout/Layout';
-import AuthGuard from './route-guard/AuthGuard';
+import Loadable from '@/components/Loadable';
+import Layout from '@/components/layout/Layout';
+import AuthGuard from '@/routes/route-guard/AuthGuard';
 
 // renders
 const HomePage = Loadable(lazy(() => import('../pages/HomePage')));

@@ -4,11 +4,11 @@ import { DiscordFilled, LoadingOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';
 
 // components
-import FlexWrapper from '../FlexWrapper';
-import Button from '../Button';
-import { SocialLoginProps } from '../../../types/auth';
-import getDiscordResponse from '../../../api/discord';
-import Typography, { Type } from '../Typography';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Button from '@/components/elements/Button';
+import { SocialLoginProps } from '@/types/auth';
+import getDiscordResponse from '@/api/discord';
+import Typography, { Type } from '@/components/elements/Typography';
 
 /**
  * Custom implementation of the Discord OAuth2 login workflow.

@@ -2,15 +2,15 @@
 import { useContext } from 'react';
 
 // components
-import { SlideContext } from '../../../context/SlideContext';
-import Typography, { Type } from '../Typography';
-import LoginForm from '../../form/Login.form';
-import Button from '../Button';
-import { loginFormUserApi } from '../../../api/mutations';
-import FlexWrapper from '../FlexWrapper';
-import Loading from '../../Loading';
-import { ModalContext } from '../../../context/ModalContext';
-import useQueryMutation from '../../../hooks/useQueryMutation';
+import { SlideContext } from '@/context/SlideContext';
+import Typography, { Type } from '@/components/elements/Typography';
+import LoginForm from '@/components/form/Login.form';
+import Button from '@/components/elements/Button';
+import { loginFormUserApi } from '@/api/mutations';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Loading from '@/components/Loading';
+import { ModalContext } from '@/context/ModalContext';
+import useQueryMutation from '@/hooks/useQueryMutation';
 
 /**
  * A function component that renders the LoginComponent.

@@ -1,5 +1,5 @@
 // components
-import FlexWrapper from '../FlexWrapper';
+import FlexWrapper from '@/components/elements/FlexWrapper';
 
 type Props = {
   children: React.ReactNode;

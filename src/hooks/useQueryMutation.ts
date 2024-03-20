@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 
 // components
-import { useStore } from '../store/store';
+import { useStore } from '@/store/store';
 import {
   genericToastError,
   messageToastError,
   messageToastSuccess,
-} from '../utils/helpers';
-import { Data, ResponseData } from '../api/mutations';
-import { setSession } from '../utils/tokenizer';
+} from '@/utils/helpers';
+import { Data, ResponseData } from '@/api/mutations';
+import { setSession } from '@/utils/tokenizer';
 
 type CallbackFunction = (data: Data) => Promise<ResponseData>;
 

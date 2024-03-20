@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // types
-import User from '../types/user';
+import User from '@/types/user';
 
 export type ResponseData = {
   token: string;

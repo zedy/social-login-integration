@@ -1,8 +1,10 @@
-// components
+// libs
 import { useContext } from 'react';
-import FlexWrapper from '../FlexWrapper';
-import Typography, { Type } from '../Typography';
-import { SlideContext } from '../../../context/SlideContext';
+
+// components
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
+import { SlideContext } from '@/context/SlideContext';
 
 export enum AnimationType {
   Left = 'left',

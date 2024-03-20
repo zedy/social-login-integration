@@ -1,8 +1,8 @@
 // components
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
-import FlexWrapper from '../elements/FlexWrapper';
+import Header from '@/components/layout/Header';
+import Main from '@/components/layout/Main';
+import Footer from '@/components/layout/Footer';
+import FlexWrapper from '@/components/elements/FlexWrapper';
 
 export default function Layout() {
   return (

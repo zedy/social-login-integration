@@ -4,10 +4,10 @@ import { LoginSocialGithub, IResolveParams } from 'reactjs-social-login';
 import { GithubFilled, LoadingOutlined } from '@ant-design/icons';
 
 // components
-import FlexWrapper from '../FlexWrapper';
-import { parseGithubData } from '../../../utils/socialDataParser';
-import Button from '../Button';
-import Typography, { Type } from '../Typography';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import { parseGithubData } from '@/utils/socialDataParser';
+import Button from '@/components/elements/Button';
+import Typography, { Type } from '@/components/elements/Typography';
 
 type Props = {
   mutationCallback: (data: Record<string, string>) => void;

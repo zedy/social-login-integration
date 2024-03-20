@@ -2,7 +2,7 @@
 import { ElementType, Suspense } from 'react';
 
 // components
-import Loader from './Loader';
+import Loader from '@/components/Loader';
 
 /**
  * A higher order component that wraps a component in a Suspense Component

@@ -4,6 +4,7 @@
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,5 +15,10 @@ export default defineConfig({
     setupFiles: './src/setupViteTests.ts',
     // enable if you have tests that rely on CSS [perfermance impact]
     css: false,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 });

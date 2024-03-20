@@ -3,8 +3,8 @@
 import axios from 'axios';
 
 // components
-import { genericToastError } from '../utils/helpers';
-import { parseDiscordData } from '../utils/socialDataParser';
+import { genericToastError } from '@/utils/helpers';
+import { parseDiscordData } from '@/utils/socialDataParser';
 
 /**
  * Custom implementation of the Discord OAuth2 login workflow.

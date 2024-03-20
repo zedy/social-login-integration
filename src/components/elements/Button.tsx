@@ -1,4 +1,4 @@
-import classParser from '../../utils/classParser';
+import classParser from '@/utils/classParser';
 
 type ButtonProperties = {
   children?: React.ReactNode;

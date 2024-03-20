@@ -1,4 +1,4 @@
-import FlexWrapper from '../elements/FlexWrapper';
+import FlexWrapper from '@/components/elements/FlexWrapper';
 
 export default function Container({
   children,

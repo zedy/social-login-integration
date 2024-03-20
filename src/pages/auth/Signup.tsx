@@ -2,16 +2,16 @@
 import { useContext } from 'react';
 
 // components
-import Button from '../../components/elements/Button';
-import Typography, { Type } from '../../components/elements/Typography';
-import { SlideContext } from '../../context/SlideContext';
+import Button from '@/components/elements/Button';
+import Typography, { Type } from '@/components/elements/Typography';
+import { SlideContext } from '@/context/SlideContext';
 import InnerSlideWrapper, {
   AnimationType,
-} from '../../components/elements/slides/InnerSlideWrapper';
-import SignupForm from '../../components/form/Signup.form';
-import { registerUserApi } from '../../api/mutations';
-import Loading from '../../components/Loading';
-import useQueryMutation from '../../hooks/useQueryMutation';
+} from '@/components/elements/slides/InnerSlideWrapper';
+import SignupForm from '@/components/form/Signup.form';
+import { registerUserApi } from '@/api/mutations';
+import Loading from '@/components/Loading';
+import useQueryMutation from '@/hooks/useQueryMutation';
 
 /**
  * A functional component that renders the SignUpcomponent & Form.

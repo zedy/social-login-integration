@@ -3,8 +3,8 @@ import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 // types
-import User from '../types/user';
-import { setSession } from '../utils/tokenizer';
+import User from '@/types/user';
+import { setSession } from '@/utils/tokenizer';
 
 type State = {
   currentUser: User | null;

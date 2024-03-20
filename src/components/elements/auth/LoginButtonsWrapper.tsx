@@ -3,17 +3,17 @@ import { useContext } from 'react';
 import { MailOutlined } from '@ant-design/icons';
 
 // components
-import FlexWrapper from '../FlexWrapper';
-import DiscordLogin from './DiscordLogin';
-import GithubLogin from './GithubLogin';
-import GoogleLogin from './GoogleLogin';
-import { SlideContext } from '../../../context/SlideContext';
-import { socialLoginApi } from '../../../api/mutations';
-import SocialButton from './SocialButton';
-import Button from '../Button';
-import Typography, { Type } from '../Typography';
-import { ModalContext } from '../../../context/ModalContext';
-import useQueryMutation from '../../../hooks/useQueryMutation';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import DiscordLogin from '@/components/elements/auth/DiscordLogin';
+import GithubLogin from '@/components/elements/auth/GithubLogin';
+import GoogleLogin from '@/components/elements/auth/GoogleLogin';
+import { SlideContext } from '@/context/SlideContext';
+import { socialLoginApi } from '@/api/mutations';
+import SocialButton from '@/components/elements/auth/SocialButton';
+import Button from '@/components/elements/Button';
+import Typography, { Type } from '@/components/elements/Typography';
+import { ModalContext } from '@/context/ModalContext';
+import useQueryMutation from '@/hooks/useQueryMutation';
 
 /**
  * Wrapper component for the social login buttons.

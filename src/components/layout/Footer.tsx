@@ -1,5 +1,5 @@
-import FlexWrapper from '../elements/FlexWrapper';
-import Typography, { Type } from '../elements/Typography';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
 
 // Component
 export default function Footer() {

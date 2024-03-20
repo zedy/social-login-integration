@@ -1,12 +1,12 @@
 // components
-import Typography, { Type } from '../../components/elements/Typography';
-import LoginComponent from './Login';
-import SignUpComponent from './Signup';
+import Typography, { Type } from '@/components/elements/Typography';
+import LoginComponent from '@/pages/auth/Login';
+import SignUpComponent from '@/pages/auth/Signup';
 import FullPageSlide, {
   AnimationType,
   BgType,
-} from '../../components/elements/slides/FullPageSlide';
-import { SlideContextProvider } from '../../context/SlideContext';
+} from '@/components/elements/slides/FullPageSlide';
+import { SlideContextProvider } from '@/context/SlideContext';
 
 /**
  * A function component that renders the LoginPage.

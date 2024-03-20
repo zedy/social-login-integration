@@ -8,14 +8,16 @@ import * as yup from 'yup';
 import { useCallback } from 'react';
 
 // components
-import FormInputElement, { InputType } from '../elements/FormInputElement';
-import Button from '../elements/Button';
-import FlexWrapper from '../elements/FlexWrapper';
-import { useStore } from '../../store/store';
-import FormTextareaElement from '../elements/FormTextareaElement';
-import GridWrapper from '../elements/GridWrapper';
-import { profileUpdateApi } from '../../api/mutations';
-import { genericToastError } from '../../utils/helpers';
+import FormInputElement, {
+  InputType,
+} from '@/components/elements/FormInputElement';
+import Button from '@/components/elements/Button';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import { useStore } from '@/store/store';
+import FormTextareaElement from '@/components/elements/FormTextareaElement';
+import GridWrapper from '@/components/elements/GridWrapper';
+import { profileUpdateApi } from '@/api/mutations';
+import { genericToastError } from '@/utils/helpers';
 
 const schemaValidation = yup.object({
   email: yup.string().email().required().min(8).max(64),

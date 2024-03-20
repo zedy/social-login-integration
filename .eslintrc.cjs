@@ -28,10 +28,18 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'react', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'prettier', 'import'],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
+  },
   rules: {
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 0,
+    'import/extensions': 0,
   },
 };

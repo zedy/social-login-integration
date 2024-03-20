@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // types
-import { GuardProps } from '../../types/auth';
+import { GuardProps } from '@/types/auth';
 
 // store
-import { useStore } from '../../store/store';
+import { useStore } from '@/store/store';
 
 /**
  * Route Guard Component

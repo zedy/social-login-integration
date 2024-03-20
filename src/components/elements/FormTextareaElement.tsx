@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { forwardRef } from 'react';
 
 // components
-import FormError from './FormError';
+import FormError from '@/components/elements/FormError';
 
 type Props = {
   label: string;

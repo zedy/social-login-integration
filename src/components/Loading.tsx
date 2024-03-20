@@ -1,6 +1,9 @@
+// libs
 import { LoadingOutlined } from '@ant-design/icons';
-import FlexWrapper from './elements/FlexWrapper';
-import Typography, { Type } from './elements/Typography';
+
+// components
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
 
 // A presentational component that shows a loading spinner
 export default function Loading() {

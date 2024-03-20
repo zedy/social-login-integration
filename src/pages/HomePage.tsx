@@ -2,11 +2,11 @@
 import { useState } from 'react';
 
 // components
-import ProfileData from '../components/ProfileData';
-import ProfileEditor from '../components/ProfileEditor';
-import FlexWrapper from '../components/elements/FlexWrapper';
-import ProfileForm from '../components/form/Profile.form';
-import ProfilePicture from '../components/home/ProfilePicture';
+import ProfileData from '@/components/ProfileData';
+import ProfileEditor from '@/components/ProfileEditor';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import ProfileForm from '@/components/form/Profile.form';
+import ProfilePicture from '@/components/home/ProfilePicture';
 
 // Component
 export default function HomePage() {

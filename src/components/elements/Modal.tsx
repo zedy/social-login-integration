@@ -5,10 +5,10 @@ import { createPortal } from 'react-dom';
 import { PlusOutlined } from '@ant-design/icons';
 
 // components
-import FlexWrapper from './FlexWrapper';
-import Typography, { Type } from './Typography';
-import Button from './Button';
-import { ModalContext } from '../../context/ModalContext';
+import FlexWrapper from '@/components/elements/FlexWrapper';
+import Typography, { Type } from '@/components/elements/Typography';
+import Button from '@/components/elements/Button';
+import { ModalContext } from '@/context/ModalContext';
 
 type ModalProperties = {
   children: React.ReactNode;
