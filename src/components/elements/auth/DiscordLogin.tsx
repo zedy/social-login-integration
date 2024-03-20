@@ -1,5 +1,5 @@
 // libs
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { DiscordFilled, LoadingOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ import FlexWrapper from '../FlexWrapper';
 import Button from '../Button';
 import { SocialLoginProps } from '../../../types/auth';
 import getDiscordResponse from '../../../api/discord';
+import Typography, { Type } from '../Typography';
 
 /**
  * Custom implementation of the Discord OAuth2 login workflow.
@@ -24,8 +25,10 @@ import getDiscordResponse from '../../../api/discord';
 export default function DiscordLogin({ mutationCallback }: SocialLoginProps) {
   const [searchParams] = useSearchParams();
   const code = searchParams.getAll('code');
+  const [isFetching, setIsFetching] = useState<boolean>(false);
 
   const getDiscordCode = () => {
+    setIsFetching(true);
     const clientId = import.meta.env.VITE_DISCORD_APP_ID;
     const redirectUrl = `${import.meta.env.VITE_HOST}/login`;
 
@@ -39,13 +42,25 @@ export default function DiscordLogin({ mutationCallback }: SocialLoginProps) {
   }, []);
 
   return (
-    <FlexWrapper classes="mr-[8px]">
-      <LoadingOutlined
-        style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}
-      />
-      <Button onClick={getDiscordCode}>
-        <DiscordFilled style={{ color: '#fff', fontSize: '18px' }} />
-      </Button>
+    <FlexWrapper alignItems="center" justifyContent="center">
+      {isFetching ? (
+        <LoadingOutlined
+          style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}
+        />
+      ) : (
+        <Button
+          onClick={getDiscordCode}
+          className="w-full"
+          icon={<DiscordFilled style={{ color: '#fff', fontSize: '18px' }} />}
+        >
+          <Typography
+            component={Type.SPAN}
+            classes="text-sm text-neutral-100 ml-2"
+          >
+            Discord
+          </Typography>
+        </Button>
+      )}
     </FlexWrapper>
   );
 }

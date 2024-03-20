@@ -16,3 +16,9 @@ export const messageToastError = (message: string) => {
     id: message,
   });
 };
+
+export const messageToastSuccess = (message: string) => {
+  toast.success(message, {
+    id: message,
+  });
+};

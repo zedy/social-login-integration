@@ -6,6 +6,8 @@ import { GoogleOutlined, LoadingOutlined } from '@ant-design/icons';
 // components
 import FlexWrapper from '../FlexWrapper';
 import { parseGoogleData } from '../../../utils/socialDataParser';
+import Button from '../Button';
+import Typography, { Type } from '../Typography';
 
 type Props = {
   mutationCallback: (data: Record<string, string>) => void;
@@ -32,23 +34,33 @@ export default function GoogleLogin({ mutationCallback }: Props) {
   );
 
   return (
-    <FlexWrapper
-      alignItems="center"
-      classes={`!w-auto transition-transform duration-150 ${
-        isFetching ? 'translate-x-10' : 'translate-x-0'
-      }`}
-    >
-      <LoadingOutlined
-        style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}
-      />
+    <FlexWrapper alignItems="center" justifyContent="center">
       <LoginSocialGoogle
         client_id={import.meta.env.VITE_GOOGLE_APP_ID || ''}
         scope="openid email https://www.googleapis.com/auth/userinfo.email"
         onLoginStart={onLoginStart}
         onResolve={onResolve}
         onReject={onReject}
+        className="flex w-full justify-center"
       >
-        <GoogleOutlined style={{ color: '#fff', fontSize: '18px' }} />
+        {isFetching ? (
+          <LoadingOutlined style={{ color: '#fff', fontSize: '20px' }} />
+        ) : (
+          <Button
+            type="button"
+            className="w-full"
+            icon={
+              <GoogleOutlined style={{ color: '#fff', fontSize: '20px' }} />
+            }
+          >
+            <Typography
+              classes="text-gray-100 ml-2 text-sm"
+              component={Type.SPAN}
+            >
+              Google
+            </Typography>
+          </Button>
+        )}
       </LoginSocialGoogle>
     </FlexWrapper>
   );

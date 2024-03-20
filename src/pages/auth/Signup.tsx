@@ -61,19 +61,19 @@ export default function SignUpComponent() {
       {isLoading && <Loading />}
       <Typography
         component={Type.SPAN}
-        classes="text-black text-xl font-bold leading-normal tracking-tight mb-12 text-center"
+        classes="text-black text-xl font-bold leading-normal tracking-tight mb-10 text-center"
       >
         Create an account
       </Typography>
       <SignupForm mutationCallback={mutate} />
-      <Typography component={Type.SPAN} classes="flex mt-5">
+      <Typography component={Type.SPAN} classes="flex mt-5 text-sm">
         Already have an account?{' '}
         <Typography
           component={Type.SPAN}
           classes="text-teal-600 cursor-pointer pl-2"
         >
           <Button
-            className="no-underline hover:underline transition-all duration-300 font-bold"
+            className="no-underline hover:underline transition-all duration-300 font-bold text-sm"
             onClick={handleClick}
             onMouseDown={handleClick}
           >

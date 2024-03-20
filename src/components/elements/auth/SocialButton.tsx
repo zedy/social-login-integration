@@ -9,7 +9,7 @@ type Props = {
 export default function SocialButton({ children, classes }: Props) {
   return (
     <FlexWrapper
-      classes={`!w-16 h-1/3 transition-all duration-150 ease-in hover:translate-x-2 bg-white shadow-md rounded-lg cursor-pointer pr-3 mb-1 last:mb-0 ${classes} justify-end`}
+      classes={`h-10 bg-white shadow-md rounded-lg cursor-pointer px-1 mb-2 last:mb-0 ${classes} justify-center items-center`}
       alignItems="center"
     >
       {children}

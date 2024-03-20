@@ -54,7 +54,7 @@ function LoginForm({ mutationCallback }: SocialLoginProps) {
         <Button
           type="submit"
           icon={<LoginOutlined style={{ color: '#fff', marginRight: '8px' }} />}
-          className="w-full bg-emerald-900 text-neutral-50 rounded py-2 scale-100 hover:scale-90 transition-all duration-30 hover:bg-emerald-800"
+          className="w-full bg-emerald-900 text-neutral-50 text-sm rounded py-2 scale-100 hover:scale-90 transition-all duration-30 hover:bg-emerald-800"
         >
           Sign in
         </Button>
