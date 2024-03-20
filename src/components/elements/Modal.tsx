@@ -1,4 +1,5 @@
 // libs
+import { useContext } from 'react';
 import type React from 'react';
 import { createPortal } from 'react-dom';
 import { PlusOutlined } from '@ant-design/icons';
@@ -7,20 +8,21 @@ import { PlusOutlined } from '@ant-design/icons';
 import FlexWrapper from './FlexWrapper';
 import Typography, { Type } from './Typography';
 import Button from './Button';
+import { ModalContext } from '../../context/ModalContext';
 
 type ModalProperties = {
-  onClose: () => void;
   children: React.ReactNode;
   title?: string;
   isOpen: boolean;
 };
 
-function Modal({ onClose, children, title, isOpen }: ModalProperties) {
+function Modal({ children, title, isOpen }: ModalProperties) {
+  const { setIsOpen } = useContext(ModalContext);
   if (!isOpen) return <div />;
 
   const handleCloseClick = (event: React.BaseSyntheticEvent) => {
     event.preventDefault();
-    onClose();
+    setIsOpen(false);
   };
 
   const modalContent = (
