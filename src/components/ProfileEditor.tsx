@@ -20,7 +20,7 @@ type Props = {
  */
 export default function ProfileEditor({ callback, state }: Props) {
   return (
-    <FlexWrapper classes="!w-auto absolute top-10 right-0">
+    <FlexWrapper classes="!w-auto absolute top-28 left-0 xs:left-auto xs:top-10 xs:right-0">
       <Button onClick={() => callback(!state)}>
         <EditOutlined style={{ marginRight: '8px' }} />
         <Typography component={Type.SPAN}>

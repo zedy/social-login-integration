@@ -57,7 +57,7 @@ export default function InnerSlideWrapper({
   return (
     <FlexWrapper
       flexDirection="col"
-      classes={`!w-auto p-5 relative overflow-hidden z-10 bg-slate-200 rounded-md duration-500 ease-in-out delay-300 transform-${
+      classes={`!w-auto p-5 mt-[10%] xs:mt-0 relative overflow-hidden z-10 bg-slate-200 rounded-md duration-500 ease-in-out delay-300 transform-${
         ANIMATIONS[type].keyword
       } ${
         isActive ? ANIMATIONS[type].active : ANIMATIONS[type].inactive
