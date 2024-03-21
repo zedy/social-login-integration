@@ -37,3 +37,13 @@ export const setSession = (jwtToken?: string | null) => {
     localStorage.removeItem('jwtToken');
   }
 };
+
+/**
+ * Simple function to get the JWT token from the local storage.
+ *
+ * @returns string | null
+ */
+export const getJwtToken = () => {
+  const jwtToken = window.localStorage.getItem('serviceToken');
+  return jwtToken;
+};

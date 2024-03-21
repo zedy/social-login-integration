@@ -4,7 +4,7 @@ export type Profile = {
   profilePicture: string;
   bio: string;
   userId: number;
-  phone: number;
+  phoneNumber: number;
 };
 
 type User = {

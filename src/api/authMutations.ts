@@ -1,15 +1,12 @@
 // libs
 import axios from 'axios';
 
-// types
-import User from '@/types/user';
+// utils
+import { getJwtToken } from '@/utils/tokenizer';
 
 export type ResponseData = {
-  token: string;
-  user: User;
   message: string;
   success: boolean;
-  created: boolean;
 };
 
 export type ResponseObject = {
@@ -18,7 +15,7 @@ export type ResponseObject = {
 };
 
 export type Data = Record<string, string | number>;
-
+const jwtToken = getJwtToken();
 const apiHandler = async (data: Data, url: string, method?: string) => {
   const response: ResponseObject = await axios({
     url,
@@ -26,6 +23,7 @@ const apiHandler = async (data: Data, url: string, method?: string) => {
     data,
     method: method || 'POST',
     headers: {
+      Authorization: `Bearer ${jwtToken}`,
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
@@ -39,21 +37,6 @@ const apiHandler = async (data: Data, url: string, method?: string) => {
 
   return response.data;
 };
-
-export async function loginFormUserApi(data: Data) {
-  const result = await apiHandler(data, '/auth/login');
-  return result;
-}
-
-export async function registerUserApi(data: Data) {
-  const result = await apiHandler(data, '/user/create');
-  return result;
-}
-
-export async function socialLoginApi(data: Data) {
-  const result = await apiHandler(data, '/social-login/login');
-  return result;
-}
 
 export async function profileUpdateApi(data: Data) {
   const { id, ...dataCopy } = data;

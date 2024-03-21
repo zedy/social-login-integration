@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoadingOutlined } from '@ant-design/icons';
 import toast from 'react-hot-toast';
 import * as yup from 'yup';
-import { useCallback } from 'react';
 
 // components
 import FormInputElement, {
@@ -16,7 +15,7 @@ import FlexWrapper from '@/components/elements/FlexWrapper';
 import { useStore } from '@/store/store';
 import FormTextareaElement from '@/components/elements/FormTextareaElement';
 import GridWrapper from '@/components/elements/GridWrapper';
-import { profileUpdateApi } from '@/api/mutations';
+import { profileUpdateApi } from '@/api/authMutations';
 import { genericToastError } from '@/utils/helpers';
 
 const schemaValidation = yup.object({
@@ -26,7 +25,7 @@ const schemaValidation = yup.object({
   company: yup.string().max(32),
   firstname: yup.string().required().min(3).max(32),
   lastname: yup.string().max(32),
-  phone: yup.number(),
+  phoneNumber: yup.number(),
   id: yup.number().required(),
 });
 
@@ -37,11 +36,15 @@ type FormData = {
 function ProfileForm() {
   const { data, mutate, isError, isLoading, isSuccess } =
     useMutation(profileUpdateApi);
-  const {
-    updateProfile,
-    currentUser: { email, profile },
-  } = useStore();
-  const { firstname, lastname, bio, address, company, phone, id } = profile;
+  const { updateProfile, currentUser } = useStore();
+  const { email, profile } = currentUser;
+
+  // if (!email) {
+  //   return null;
+  // }
+
+  const { firstname, lastname, bio, address, company, phoneNumber, id } =
+    profile;
   const {
     register,
     getValues,
@@ -58,15 +61,15 @@ function ProfileForm() {
     bio: bio || '',
     address: address || '',
     company: company || '',
-    phone: Number(phone),
+    phoneNumber: phoneNumber || '',
   };
 
-  const onSubmit = useCallback(async () => {
+  const onSubmit = async () => {
     const formData = getValues();
 
     await mutate(formData);
-    updateProfile({ ...profile, ...getValues() });
-  }, []);
+    updateProfile({ ...profile, ...formData });
+  };
 
   if (isSuccess) {
     const { message } = data;
@@ -119,9 +122,9 @@ function ProfileForm() {
             label="Phone"
             type={InputType.Number}
             error={errors}
-            {...register('phone', {
+            {...register('phoneNumber', {
               required: false,
-              value: defaultValues.phone,
+              value: defaultValues.phoneNumber,
             })}
           />
         </GridWrapper>

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export const parseGoogleData = (data: Record<string, string>) => {
-  const { email, name, family_name, given_name, picture } = data;
+  const { email, name, family_name, given_name, picture, sub } = data;
 
   return {
     firstname: family_name || name,
@@ -8,7 +8,7 @@ export const parseGoogleData = (data: Record<string, string>) => {
     email,
     profilePicture: picture,
     provider: 'google',
-    providerId: '', // TODO: investigate this
+    providerId: sub,
   };
 };
 

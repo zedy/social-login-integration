@@ -5,10 +5,13 @@ import GridWrapper from '@/components/elements/GridWrapper';
 import ProfileElement from '@/components/elements/ProfileElement';
 
 function ProfileData() {
-  const {
-    currentUser: { email, profile },
-  } = useStore();
-  const { firstname, lastname, bio, address, company, phone, id } = profile;
+  const { currentUser } = useStore();
+
+  if (!currentUser) return null;
+
+  const { profile, email } = currentUser;
+  const { firstname, lastname, bio, address, company, phoneNumber, id } =
+    profile;
 
   const defaultValues = {
     id,
@@ -18,7 +21,7 @@ function ProfileData() {
     bio: bio || '',
     address: address || '',
     company: company || '',
-    phone: Number(phone),
+    phoneNumber: phoneNumber || '',
   };
 
   return (
@@ -30,10 +33,7 @@ function ProfileData() {
         </GridWrapper>
         <GridWrapper>
           <ProfileElement label="Email" value={defaultValues.email} />
-          <ProfileElement
-            label="Phone"
-            value={defaultValues.phone.toString()}
-          />
+          <ProfileElement label="Phone" value={defaultValues.phoneNumber} />
         </GridWrapper>
         <GridWrapper>
           <ProfileElement label="Address" value={defaultValues.address} />
