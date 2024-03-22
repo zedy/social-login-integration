@@ -8,7 +8,7 @@ import DiscordLogin from '@/components/elements/auth/DiscordLogin';
 import GithubLogin from '@/components/elements/auth/GithubLogin';
 import GoogleLogin from '@/components/elements/auth/GoogleLogin';
 import { SlideContext } from '@/context/SlideContext';
-import { socialLoginApi } from '@/api/mutations';
+import { socialLoginApi } from '@/api/socialMutations';
 import SocialButton from '@/components/elements/auth/SocialButton';
 import Button from '@/components/elements/Button';
 import Typography, { Type } from '@/components/elements/Typography';

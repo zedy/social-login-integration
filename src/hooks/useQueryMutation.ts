@@ -9,7 +9,7 @@ import {
   messageToastError,
   messageToastSuccess,
 } from '@/utils/helpers';
-import { Data, ResponseData } from '@/api/mutations';
+import { Data, ResponseData } from '@/api/socialMutations';
 import { setSession } from '@/utils/tokenizer';
 
 type CallbackFunction = (data: Data) => Promise<ResponseData>;

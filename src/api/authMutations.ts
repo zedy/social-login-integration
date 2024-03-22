@@ -22,6 +22,7 @@ const apiHandler = async (data: Data, url: string, method?: string) => {
     baseURL: import.meta.env.VITE_SERVER_API as string,
     data,
     method: method || 'POST',
+    withCredentials: true,
     headers: {
       Authorization: `Bearer ${jwtToken}`,
       'Content-Type': 'application/json',

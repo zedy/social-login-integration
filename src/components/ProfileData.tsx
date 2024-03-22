@@ -10,6 +10,7 @@ function ProfileData() {
   if (!currentUser) return null;
 
   const { profile, email } = currentUser;
+  console.log(currentUser);
   const { firstname, lastname, bio, address, company, phoneNumber, id } =
     profile;
 

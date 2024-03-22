@@ -44,6 +44,6 @@ export const setSession = (jwtToken?: string | null) => {
  * @returns string | null
  */
 export const getJwtToken = () => {
-  const jwtToken = window.localStorage.getItem('serviceToken');
+  const jwtToken = window.localStorage.getItem('jwtToken');
   return jwtToken;
 };

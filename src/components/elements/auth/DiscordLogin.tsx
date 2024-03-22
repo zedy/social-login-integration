@@ -1,5 +1,5 @@
 // libs
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DiscordFilled, LoadingOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';
 
@@ -37,9 +37,10 @@ export default function DiscordLogin({ mutationCallback }: SocialLoginProps) {
     )}&scope=identify+email`;
   };
 
-  useEffect(() => {
+  if (code.length > 0 && !isFetching) {
+    setIsFetching(true);
     getDiscordResponse(code, mutationCallback);
-  }, []);
+  }
 
   return (
     <FlexWrapper alignItems="center" justifyContent="center">

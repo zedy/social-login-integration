@@ -6,7 +6,7 @@ import { SlideContext } from '@/context/SlideContext';
 import Typography, { Type } from '@/components/elements/Typography';
 import LoginForm from '@/components/form/Login.form';
 import Button from '@/components/elements/Button';
-import { loginFormUserApi } from '@/api/mutations';
+import { loginFormUserApi } from '@/api/socialMutations';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import Loading from '@/components/Loading';
 import { ModalContext } from '@/context/ModalContext';

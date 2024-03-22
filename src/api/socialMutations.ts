@@ -17,7 +17,7 @@ export type ResponseObject = {
   data: ResponseData;
 };
 
-export type Data = Record<string, string | number>;
+export type Data = Record<string, string>;
 
 const apiHandler = async (data: Data, url: string, method?: string) => {
   const response: ResponseObject = await axios({

@@ -9,7 +9,7 @@ import InnerSlideWrapper, {
   AnimationType,
 } from '@/components/elements/slides/InnerSlideWrapper';
 import SignupForm from '@/components/form/Signup.form';
-import { registerUserApi } from '@/api/mutations';
+import { registerUserApi } from '@/api/socialMutations';
 import Loading from '@/components/Loading';
 import useQueryMutation from '@/hooks/useQueryMutation';
 

@@ -46,7 +46,7 @@ export default async function getDiscordResponse(
       });
 
       if (userResult.data) {
-        callback(parseDiscordData(userResult.data));
+        await callback(parseDiscordData(userResult.data));
       } else {
         genericToastError();
       }
