@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // libs
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
@@ -17,6 +18,7 @@ import FormTextareaElement from '@/components/elements/FormTextareaElement';
 import GridWrapper from '@/components/elements/GridWrapper';
 import { profileUpdateApi } from '@/api/authMutations';
 import { genericToastError } from '@/utils/helpers';
+import User from '@/types/user';
 
 const schemaValidation = yup.object({
   email: yup.string().email().required().min(8).max(64),
@@ -33,16 +35,15 @@ type FormData = {
   [key: string]: string | number;
 };
 
-function ProfileForm() {
+type Props = {
+  currentUser: User;
+};
+
+function ProfileForm({ currentUser }: Props) {
   const { data, mutate, isError, isLoading, isSuccess } =
     useMutation(profileUpdateApi);
-  const { updateProfile, currentUser } = useStore();
+  const { updateProfile } = useStore();
   const { email, profile } = currentUser;
-
-  // if (!email) {
-  //   return null;
-  // }
-
   const { firstname, lastname, bio, address, company, phoneNumber, id } =
     profile;
   const {
@@ -50,6 +51,7 @@ function ProfileForm() {
     getValues,
     formState: { errors },
   } = useForm<FormData>({
+    // @ts-ignore TODO: figure this out
     resolver: yupResolver(schemaValidation),
   });
 

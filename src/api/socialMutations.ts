@@ -3,6 +3,7 @@ import axios from 'axios';
 
 // types
 import User from '@/types/user';
+import generateHmac from '@/utils/hmac';
 
 export type ResponseData = {
   token: string;
@@ -22,6 +23,9 @@ export type Data = Record<string, string>;
 const apiHandler = async (data: Data, url: string, method?: string) => {
   const response: ResponseObject = await axios({
     url,
+    params: {
+      ...generateHmac(),
+    },
     baseURL: import.meta.env.VITE_SERVER_API as string,
     data,
     method: method || 'POST',

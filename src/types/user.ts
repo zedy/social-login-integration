@@ -1,9 +1,11 @@
 export type Profile = {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   profilePicture: string;
+  address: string;
+  company: string;
   bio: string;
-  userId: number;
+  id: number;
   phoneNumber: number;
 };
 
