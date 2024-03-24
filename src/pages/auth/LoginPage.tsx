@@ -15,7 +15,7 @@ import { SlideContextProvider } from '@/context/SlideContext';
  */
 export default function LoginPage() {
   return (
-    <div className="w-full h-full">
+    <div className="login-page w-full h-full">
       <Typography component={Type.H1} isSr>
         Viaggiare
       </Typography>

@@ -10,7 +10,7 @@ export default function Layout() {
       flexDirection="col"
       justifyContent="between"
       alignItems="center"
-      classes="w-full h-full"
+      classes="layout w-full h-full"
     >
       <Header />
       <Main />
