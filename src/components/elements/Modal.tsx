@@ -31,7 +31,7 @@ function Modal({ children, title, isOpen }: ModalProperties) {
       alignItems="center"
       classes="modal-outline absolute top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-40 z-50"
     >
-      <div className="relative min-h-56 min-w-[300px]">
+      <div className="relative min-h-56 min-w-[300px]" data-testId="modal">
         <FlexWrapper
           flexDirection="col"
           classes="modal h-full w-full rounded-xl bg-neutral-100"

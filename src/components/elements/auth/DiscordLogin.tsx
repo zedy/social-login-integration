@@ -43,7 +43,11 @@ export default function DiscordLogin({ mutationCallback }: SocialLoginProps) {
   }
 
   return (
-    <FlexWrapper alignItems="center" justifyContent="center">
+    <FlexWrapper
+      alignItems="center"
+      justifyContent="center"
+      classes="discordLogin"
+    >
       {isFetching ? (
         <LoadingOutlined
           style={{ color: '#fff', fontSize: '18px', marginRight: '24px' }}

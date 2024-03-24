@@ -14,6 +14,7 @@ import Button from '@/components/elements/Button';
 import Typography, { Type } from '@/components/elements/Typography';
 import { ModalContext } from '@/context/ModalContext';
 import useQueryMutation from '@/hooks/useQueryMutation';
+import withTestId from '@/components/withTestId';
 
 /**
  * Wrapper component for the social login buttons.
@@ -34,6 +35,8 @@ export default function LoginButtonsWrapper() {
     setIsOpen(true);
   };
 
+  const ButtonWithTestId = withTestId(Button, 'modal-open-button');
+
   return (
     <FlexWrapper
       classes={`transition-all !w-64 duration-300 delay-500 opacity-0 -translate-x-12 ${
@@ -53,7 +56,7 @@ export default function LoginButtonsWrapper() {
         <DiscordLogin mutationCallback={mutate} />
       </SocialButton>
       <SocialButton classes="bg-gradient-to-t from-emerald-700 to-emerald-900 hover:from-emerald-800 hover:to-emerald-900">
-        <Button
+        <ButtonWithTestId
           className="w-full"
           type="button"
           onClick={handleModalOpen}
@@ -65,7 +68,7 @@ export default function LoginButtonsWrapper() {
           >
             Email
           </Typography>
-        </Button>
+        </ButtonWithTestId>
       </SocialButton>
     </FlexWrapper>
   );

@@ -33,6 +33,7 @@ export default function Button({
   onMouseDown,
   type = 'button',
   disabled,
+  ...props
 }: ButtonProperties) {
   return (
     <button
@@ -41,6 +42,7 @@ export default function Button({
       onMouseDown={onMouseDown}
       type={type === 'submit' ? 'submit' : 'button'}
       className={classParser(DEFAULT_CLASS, className)}
+      {...props}
     >
       {icon}
       {children}
