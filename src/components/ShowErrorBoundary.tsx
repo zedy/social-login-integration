@@ -1,13 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 type Props = {
   error: Error;
-  resetErrorBoundary?: () => void;
 };
 
-export default function ShowErrorBoundary({
-  error,
-  resetErrorBoundary,
-}: Props) {
+export default function ShowErrorBoundary({ error }: Props) {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
