@@ -64,7 +64,7 @@ describe('Show modal', () => {
     }
   });
 
-  it('displays the modal when the button is clicked', () => {
+  test('displays the modal when the button is clicked', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <QueryClientProvider client={queryClient}>
