@@ -9,8 +9,8 @@ export default {
         xs: '480px',
       },
       backgroundImage: {
-        forest: "url('./src/assets/forest-blur.jpg')",
-        beach: "url('./src/assets/beach-blur.jpg')",
+        forest: "url('/forest-blur.jpg')",
+        beach: "url('/beach-blur.jpg')",
       },
       fontFamily: {
         pacifico: ['"Pacifico"', ...defaultTheme.fontFamily.sans],
