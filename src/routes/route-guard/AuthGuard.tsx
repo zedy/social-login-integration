@@ -1,10 +1,11 @@
 // libs
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // components
 import { GuardProps } from '@/types/auth';
 import { useStore } from '@/store/store';
+import { ModalContext } from '@/context/ModalContext';
 
 /**
  * Route Guard Component
@@ -18,6 +19,7 @@ import { useStore } from '@/store/store';
  * @param {GuardProps} { children }
  */
 const AuthGuard = ({ children }: GuardProps) => {
+  const { setIsOpen } = useContext(ModalContext);
   const { currentUser } = useStore();
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,7 +33,9 @@ const AuthGuard = ({ children }: GuardProps) => {
         replace: true,
       });
     }
-  }, [navigate, location, currentUser]);
+
+    setIsOpen(false);
+  }, [navigate, location, currentUser, setIsOpen]);
 
   return children;
 };
