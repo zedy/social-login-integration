@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // libs
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -13,7 +12,6 @@ import FormInputElement, {
 import Button from '@/components/elements/Button';
 import FlexWrapper from '@/components/elements/FlexWrapper';
 import { SocialLoginProps } from '@/types/auth';
-import { ModalContext } from '@/context/ModalContext';
 
 const schemaValidation = yup
   .object({
